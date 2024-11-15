@@ -1,0 +1,308 @@
+/* Global reset and typography improvements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(55, 55, 55);
+  background-image: url(./subvertivo-_lab-8HrVclautyw-unsplash0.png);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Container for the content */
+.container {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  animation: borderAnimation 3s infinite alternate;
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Border animation */
+@keyframes borderAnimation {
+  0% {
+    border: 5px solid rgb(0, 255, 255);
+  }
+  50% {
+    border: 5px solid rgb(0, 160, 160);
+  }
+  100% {
+    border: 5px solid rgb(255, 165, 0);
+  }
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  animation: slideIn 1s ease-out;
+}
+
+/* Animation for slide-in effect */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+header h1 {
+  font-size: 75px;
+  color: rgb(0, 160, 0);
+  font-weight: 350;
+  border: #888888 2px solid;
+  padding: 10px;
+  width: 90%;
+  margin: 50px auto;
+  border-radius: 10px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: color 0.3s ease;
+}
+
+header h1:hover {
+  color: rgb(0, 255, 255);
+}
+
+input {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  border-bottom: 3px solid rgb(0, 255, 255);
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+input:focus {
+  border-color: rgb(0, 160, 160);
+  transform: scale(1.05);
+}
+
+input:active {
+  border-color: rgb(0, 255, 255);
+}
+
+.task {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: taskSlideIn 0.6s ease-out;
+}
+
+@keyframes taskSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.task:hover {
+  background-color: rgba(0, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.task span {
+  color: black;
+}
+
+.icon {
+  float: right;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: rgb(0, 255, 255);
+}
+
+article {
+  display: grid;
+  gap: 15px;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeInTasks 1s ease-in forwards;
+}
+
+/* Animation for tasks appearing */
+@keyframes fadeInTasks {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.edit-todo {
+  width: 85%;
+  font-size: 16px;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #000000;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-todo:focus {
+  background-color: rgba(0, 160, 160, 0.1);
+}
+
+.button {
+  margin: 0 10px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(100, 0, 255);
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 115px;
+  margin-top: 15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+  background-color: rgb(100, 0, 255);
+  color: #fff;
+}
+
+.button.selected {
+  color: #ffffff;
+  background-color: rgb(100, 0, 255);
+  border-color: #000000;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.button.clear {
+  float: right;
+  color: #fff;
+  background-color: #ee1630;
+  width: 170px;
+  margin-top: 25px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button.clear:hover {
+  background-color: #ff0000;
+  transform: scale(1.05);
+}
+
+.end {
+  position: absolute;
+  color: #a0a0a0;
+  bottom: 10px;
+  font-size: 16px;
+  text-align: center;
+  width: 50%;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.end:hover {
+  opacity: 1;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  body {
+    width: 90%;
+  }
+
+  header h1 {
+    font-size: 50px;
+  }
+
+  .button {
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .button.clear {
+    width: 140px;
+  }
+
+  .task {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .edit-todo {
+    font-size: 14px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    width: 100%;
+    height: auto;
+  }
+
+  header h1 {
+    font-size: 35px;
+  }
+
+  input {
+    font-size: 18px;
+  }
+
+  .task {
+    font-size: 12px;
+  }
+
+  .button {
+    width: 85px;
+    font-size: 11px;
+  }
+
+  .button.clear {
+    width: 120px;
+  }
+
+  .end {
+    width: 100%;
+    font-size: 14px;
+  }
+}
